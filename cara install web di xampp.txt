@@ -1,0 +1,22 @@
+Cara Install Web di XAMPP
+
+1. Extract file rar/zip ke folder xampp/htdocs
+2. buka browser, masuk ke localhost/phpmyadmin
+3. buat database baru dengan nama "db_pinjam_ruang"
+4. klik nama database tsb
+5. klik menu import
+6. masukkan file db_pinjam_ruang.sql dari folder lalu klik Go
+7. akses web di alamat localhost/pinjam_ruang
+8.selesai
+
+akses admin
+user:1234
+pass:1234
+
+akses pegawai
+user:11223344
+pass:11223344
+
+
+catatan : xampp versi 7.1.4
+laravel versi 5.5
