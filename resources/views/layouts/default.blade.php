@@ -116,11 +116,11 @@
                     
                     @if(\App\Http\Controllers\BaseController::is_pegawai(\Illuminate\Support\Facades\Auth::id()))
                     <li style="text-align:center" class="nav header"><span>User</span></li>
-                    <li><a href="{{ route('user.index')  }}" ><i class="lnr lnr-users"></i> <span>Manajemen User</span></a></li>
+                    <!-- <li><a href="{{ route('user.index')  }}" ><i class="lnr lnr-users"></i> <span>Manajemen User</span></a></li> -->
 
-                        <!-- <li><a href="{{ route('user.index')  }}" ><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
+                        <li><a href="{{ route('user.index')  }}" ><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
                         <li><a href="{{ route('mahasiswa.index')  }}" ><i class="lnr lnr-users"></i> <span></span> Pegawai</a></li>
-                        <li><a href="{{ route('manajer.index')  }}" ><i class="lnr lnr-user"></i> <span></span> Manajer</a></li> -->
+                        <li><a href="{{ route('manajer.index')  }}" ><i class="lnr lnr-user"></i> <span></span> Manajer</a></li>
                         @endif
                      @if(\App\Http\Controllers\BaseController::is_manajer(\Illuminate\Support\Facades\Auth::id()))
                         <li><a href="{{ route('ruangan.index')  }}" ><i class="lnr lnr-list"></i> <span>Ruangan</span></a></li>
