@@ -47,12 +47,13 @@ class RuanganController extends BaseController
             'nama_ruangan' => $request->nama_ruangan,
             'status' => $request->status,
             'foto_ruangan' => $image
-        ]);
+        ]);        
 
         return redirect()
-            ->route('ruangan.index')
+            ->route('transaksi-ruangan-app.index')
             ->with('success','Sukses menambahkan ruangan baru');
     }
+   
 
     /**
      * Display the specified resource.
@@ -105,7 +106,7 @@ class RuanganController extends BaseController
         ]);
 
         return redirect()
-            ->route('ruangan.index')
+            ->route('transaksi-ruangan-app.index')
             ->with('success','Sukses mengupdate ruangan');
     }
 
@@ -119,7 +120,7 @@ class RuanganController extends BaseController
     {
         Ruangan::destroy($id);
         return redirect()
-            ->route('ruangan.index')
+            ->route('transaksi-ruangan-app.index')
             ->with('success','Sukses menghapus ruangan');
     }
 }

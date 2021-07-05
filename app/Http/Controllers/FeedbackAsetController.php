@@ -51,7 +51,7 @@ class FeedbackAsetController extends BaseController
            
         ]);
 
-        return redirect('daftar-transaksiaset')
+        return redirect('transaksi-aset/daftar-transaksiaset')
             ->with('success','feedback anda telah tersimpan');
     }
 

@@ -50,7 +50,7 @@ class AsetController extends BaseController
         ]);
 
         return redirect()
-            ->route('aset.index')
+            ->route('transaksi-aset-app.index')
             ->with('success','Sukses menambahkan aset baru');
     }
 
@@ -105,7 +105,7 @@ class AsetController extends BaseController
         ]);
 
         return redirect()
-            ->route('aset.index')
+            ->route('transaksi-aset-app.index')
             ->with('success','Sukses mengupdate aset');
     }
 
@@ -119,7 +119,7 @@ class AsetController extends BaseController
     {
         Aset::destroy($id);
         return redirect()
-            ->route('aset.index')
+            ->route('transaksi-aset-app.index')
             ->with('success','Sukses menghapus aset');
     }
 }

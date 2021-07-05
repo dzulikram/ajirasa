@@ -75,11 +75,49 @@ class TransaksiController extends BaseController
             'status' => 'pending'
         ]);
 
+        $username = User::find(Auth::id())->username;
+        $ruangan = Ruangan::find($request->id_ruangan);
+        $message = "PEMINJAMAN SARANA & FASILITAS UIW KALTIMRA
+=======*Ruangan*=======
+Permintaan Peminjaman *".$ruangan->nama_ruangan."*
+Pada Tanggal *".$request->tanggal_peminjaman."*
+Oleh *".$username."*";
+	    $this->sendWa($message,'6281385282208');
+        $this->sendWa($message,'6282157707012');
+        $this->sendWa($message,'6281283442713');
 
-        return redirect('daftar-transaksi')
+        return redirect('transaksi-ruangan/daftar-transaksi')
             ->with('success','Transaksi anda sedang di proses');
 
     }
+
+    public function sendWa($message,$destination)
+	{
+		$curl = curl_init();
+		$token = "EiAM1JO0FD7vMBsqP5gERYBbQEn7rdm9QD3QekEXvgiWgvXwvsiC6gCS7lNizJUu";
+		$data = [
+		    'phone' => $destination,
+		    'message' => $message,
+		];
+
+		curl_setopt($curl, CURLOPT_HTTPHEADER,
+		    array(
+		        "Authorization:".$token,
+		    )
+		);
+		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+		curl_setopt($curl, CURLOPT_URL, "https://sambi.wablas.com/api/send-message");
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+		$result = curl_exec($curl);
+		curl_close($curl);
+
+		// echo "<pre>";
+		// print_r($result);
+        // echo "</pre>";       
+	}
 
     /**
      * Display the specified resource.
@@ -135,7 +173,7 @@ class TransaksiController extends BaseController
                 'status' => 'dipinjam'
             ]);
 
-        return redirect('daftar-transaksi')
+        return redirect('transaksi-ruangan/daftar-transaksi')
             ->with('success','sukses merubah status transaksi');
 
     }
@@ -151,7 +189,7 @@ class TransaksiController extends BaseController
             'status' => 'tolak'
         ]);
 
-        return redirect('daftar-transaksi')
+        return redirect('transaksi-ruangan/daftar-transaksi')
             ->with('success','sukses merubah status transaksi');
     }
     /**

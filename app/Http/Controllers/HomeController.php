@@ -16,14 +16,19 @@ class HomeController extends BaseController
      */
     public function index()
     {
-        $data = Ruangan::orderBy('updated_at','DESC')
+        return redirect('pinjam-ruangan');
+    }
+
+    public function indexruangan()
+    {
+        $data = Ruangan::orderBy('kode_ruangan','ASC')
             ->paginate(10);
         return view('app.dashboard',compact('data'));
     }
 
     public function indexaset()
     {
-        $data = Aset::orderBy('updated_at','DESC')
+        $data = Aset::orderBy('kode_aset','ASC')
             ->paginate(10);
         return view('app.dashboard_aset',compact('data'));
     }

@@ -18,7 +18,7 @@
                     </div>
                 @endif
                 <h4 class="page-title">Laporan Aset</h4>
-                <form method="post" action="{{ url('lap_aksiaset') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ url('transaksi-aset/lap_aksiaset') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-6">

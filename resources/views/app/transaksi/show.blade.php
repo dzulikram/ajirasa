@@ -22,12 +22,12 @@
                     @if($pegawai)
                         @if($data->status == 'pending')
                             <h3 class="page-title">
-                                <a href="{{ url('terima_transaksi',$data->id) }}"
+                                <a href="{{ url('transaksi-ruangan/terima_transaksi',$data->id) }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('terima').submit();" class="btn btn-primary">
                                     Terima
                                 </a>
-                                <a href="{{ url('tolak_transaksi',$data->id) }}"
+                                <a href="{{ url('transaksi-ruangan/tolak_transaksi',$data->id) }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('tolak').submit();" class="btn btn-danger">
                                     Tolak
@@ -35,10 +35,10 @@
                             </h3>
                             @endif
                     @endif
-                    <form id="terima" action="{{ url('terima_transaksi',$data->id) }}" method="POST" style="display: none;">
+                    <form id="terima" action="{{ url('transaksi-ruangan/terima_transaksi',$data->id) }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
-                    <form id="tolak" action="{{ url('tolak_transaksi',$data->id) }}" method="POST" style="display: none;">
+                    <form id="tolak" action="{{ url('transaksi-ruangan/tolak_transaksi',$data->id) }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                     @if($data->status == 'acc')
@@ -182,7 +182,7 @@
                     <h4 class="modal-title">Hasil Peminjaman</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" class="form-horizontal" action="{{ url('store_feedback') }}" enctype="multipart/form-data">
+                    <form method="post" class="form-horizontal" action="{{ url('transaksi-ruangan/store_feedback') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">

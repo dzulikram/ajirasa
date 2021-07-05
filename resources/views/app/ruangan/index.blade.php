@@ -10,7 +10,7 @@
                         <p>{{ $message }}</p>
                     </div>
                 @endif
-                <h3 class="page-title"><a type="button" href="{{ route('ruangan.create') }}" class="btn btn-default"><i class="fa fa-plus-square"></i> Ruangan Baru </a></h3>
+                <h3 class="page-title"><a type="button" href="{{ route('transaksi-ruangan-app.create') }}" class="btn btn-default"><i class="fa fa-plus-square"></i> Ruangan Baru </a></h3>
                 <div class="row">
                     <div class="col-md-12">
                         <!-- BORDERED TABLE -->
@@ -40,8 +40,8 @@
                                             <td>{{ $d->created_at  }}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('ruangan.edit',$d->id) }}" class="btn btn-default">Edit</a>
-                                                    <form method="POST" action="{{ route('ruangan.destroy',$d->id)  }}'" style="display:inline">
+                                                    <a href="{{ route('transaksi-ruangan-app.edit',$d->id) }}" class="btn btn-default">Edit</a>
+                                                    <form method="POST" action="{{ route('transaksi-ruangan-app.destroy',$d->id)  }}'" style="display:inline">
                                                         <input name="_method" type="hidden" value="DELETE">
                                                         <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                                         <button type="submit" class="btn btn-danger">Hapus</button>

@@ -73,33 +73,60 @@
     <!-- END NAVBAR -->
 
     <!-- LEFT SIDEBAR -->
-    <div id="sidebar-nav" class="sidebar">
-     
-        <div class="sidebar-scroll">
-       
-            <nav>
-             
+    <div id="sidebar-nav" class="sidebar">     
+        <div class="sidebar-scroll">  
                 <ul class="nav">
-                    <li><a href="{{ url('/')  }}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                    <li><a href="{{ url('/daftar-transaksi')  }}" ><i class="lnr lnr-list"></i> <span>Histori Transaksi</span></a></li>
-                    <li><a href="{{ url('/asetdash')  }}"><i class="lnr lnr-screen"></i> <span>Dashboard Aset</span></a></li>
-                    <li><a href="{{ url('/daftar-transaksiaset')  }}" ><i class="lnr lnr-indent-increase"></i> <span>Histori Transaksi Aset</span></a></li>
+                    <li><span>_</span></li>
+
+                    <li style="text-align:center" class="nav header"><span>Peminjaman</span></li> 
+                    <li><a href="{{ url('pinjam-ruangan')}}" class="{{ request()->is('pinjam-ruangan*') ? 'active' : '' }}"><i class="lnr lnr-enter"></i> <span>Ruangan</span></a></li>
+                    <li><a href="{{ url('pinjam-aset')}}" class="{{ request()->is('pinjam-aset*') ? 'active' : '' }}"><i class="lnr lnr-layers"></i> <span>Aset</span></a></li>
+                    <li><a href="#"><i class="lnr lnr-car"></i> <span>Kendaraan</span></a></li>
+                    <li><a href="#"><i class="lnr lnr-camera-video"></i> <span>Akun Zoom</span></a></li>
+                    
+                    <li style="text-align:center" class="nav header"><span>Transaksi</span></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#submenu-1" class="{{ request()->is('transaksi-ruangan*') ? 'active' : '' }}"><i class="lnr lnr-enter"></i> <span>Ruangan</span></a>
+                        <ul id="submenu-1" class="{{ request()->is('transaksi-ruangan*') ? 'nav' : 'nav collapse' }}">
+                            <li><a href="{{ url('transaksi-ruangan/daftar-transaksi')}}" class="{{ Request::path() === 'transaksi-ruangan/daftar-transaksi' ? 'nav-link active' : '' }}"><i class="fa fa-angle-double-right"></i> History</a></li>
+                            <li><a href="{{ url('transaksi-ruangan/laporan')}}" class="{{ Request::path() === 'transaksi-ruangan/laporan' ? 'nav-link active' : '' }}"><i class="fa fa-angle-double-right"></i> Laporan</a></li>
+                            <li><a href="{{ route('transaksi-ruangan-app.index')}}" class="{{ request()->is('transaksi-ruangan-app*') ? 'nav-link active' : '' }}"><i class="fa fa-angle-double-right"></i> List Ruangan</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" data-toggle="collapse" data-target="#submenu-2" class="{{ request()->is('transaksi-aset*') ? 'active' : '' }}"><i class="lnr lnr-layers"></i> <span>Aset</span></a>
+                        <ul id="submenu-2" class="{{ request()->is('transaksi-aset*') ? 'nav' : 'nav collapse' }}">
+                            <li><a href="{{ url('transaksi-aset/daftar-transaksiaset')}}" class="{{ Request::path() === 'transaksi-aset/daftar-transaksiaset' ? 'nav-link active' : '' }}"><i class="fa fa-angle-double-right"></i> History</a></li>
+                            <li><a href="{{ url('transaksi-aset/laporanaset')}}" class="{{ Request::path() === 'transaksi-aset/laporanaset' ? 'nav-link active' : '' }}"><i class="fa fa-angle-double-right"></i> Laporan</a></li>
+                            <li><a href="{{ route('transaksi-aset-app.index')}}" class="{{ request()->is('transaksi-aset-app*') ? 'nav-link active' : '' }}"><i class="fa fa-angle-double-right"></i> List Aset</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="lnr lnr-car"></i> <span>Kendaraan</span></a>
+                        <ul id="submenu-3" class="nav collapse">
+                            <li><a href="#" class="nav-link"><i class="fa fa-angle-double-right"></i> History</a></li>
+                            <li><a href="#" class="nav-link"><i class="fa fa-angle-double-right"></i> Laporan</a></li>
+                            <li><a href="#" class="nav-link"><i class="fa fa-angle-double-right"></i> List Kendaraan</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="lnr lnr-camera-video"></i> <span>Akun Zoom</span></a>
+                        <ul id="submenu-4" class="nav collapse">
+                            <li><a href="#" class="nav-link"><i class="fa fa-angle-double-right"></i> History</a></li>
+                            <li><a href="#" class="nav-link"><i class="fa fa-angle-double-right"></i> Laporan</a></li>
+                            <li><a href="#" class="nav-link"><i class="fa fa-angle-double-right"></i> List Akun Zoom</a></li>
+                        </ul>
+                    </li>
+                    
                     @if(\App\Http\Controllers\BaseController::is_pegawai(\Illuminate\Support\Facades\Auth::id()))
-                        <li><a href="{{ route('ruangan.index')  }}" ><i class="lnr lnr-enter"></i> <span>Ruangan</span></a></li>
-                         <li><a href="{{ url('/laporan')  }}" ><i class="lnr lnr-layers"></i> <span>Laporan</span></a></li>
-                         <li><a href="{{ route('aset.index')  }}" ><i class="lnr lnr-laptop-phone"></i> <span>Aset</span></a></li>
-                         <li><a href="{{ url('/laporanaset')  }}" ><i class="lnr lnr-database"></i> <span>Laporan Aset</span></a></li>
-                        <li><a href="{{ route('user.index')  }}" ><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
+                    <li style="text-align:center" class="nav header"><span>User</span></li>
+                    <li><a href="{{ route('user.index')  }}" ><i class="lnr lnr-users"></i> <span>Manajemen User</span></a></li>
+
+                        <!-- <li><a href="{{ route('user.index')  }}" ><i class="lnr lnr-user"></i> <span>Admin</span></a></li>
                         <li><a href="{{ route('mahasiswa.index')  }}" ><i class="lnr lnr-users"></i> <span></span> Pegawai</a></li>
-                        <li><a href="{{ route('manajer.index')  }}" ><i class="lnr lnr-user"></i> <span></span> Manajer</a></li>
+                        <li><a href="{{ route('manajer.index')  }}" ><i class="lnr lnr-user"></i> <span></span> Manajer</a></li> -->
                         @endif
                      @if(\App\Http\Controllers\BaseController::is_manajer(\Illuminate\Support\Facades\Auth::id()))
                         <li><a href="{{ route('ruangan.index')  }}" ><i class="lnr lnr-list"></i> <span>Ruangan</span></a></li>
-                         <li><a href="{{ url('/laporan')  }}" ><i class="lnr lnr-list"></i> <span>Laporan</span></a></li>
-                        
+                         <li><a href="{{ url('/laporan')  }}" ><i class="lnr lnr-list"></i> <span>Laporan</span></a></li>                        
                         @endif
                 </ul>
-            </nav>
         </div>
     </div>
     <!-- END LEFT SIDEBAR -->

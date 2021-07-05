@@ -16,7 +16,7 @@
                     </div>
                 @endif
                 <h4 class="page-title">Menambah data aset</h4>
-                {!! Form::open(array('route' => 'aset.store','method'=>'POST','enctype'=>'multipart/form-data')) !!}
+                {!! Form::open(array('route' => 'transaksi-aset-app.store','method'=>'POST','enctype'=>'multipart/form-data')) !!}
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

@@ -56,11 +56,11 @@
                                     <tr>
                                         <td>{{ $i + 1}}</td>
                                         <td>{{ $d->User->nrp }}</td>
-                                        <td>{{ $d->Ruangan->kode_aset }}</td>
+                                        <td>{{ $d->Aset->kode_aset }}</td>
                                         <td>{{ $d->created_at }}</td>
                                         <td>{{ $d->tanggal_peminjaman }}</td>
                                         <td>{{ $d->tanggal_pengembalian }}</td>
-                                        <td><a href="{{ url('show-transaksiaset',$d->id) }}" class="btn btn-link">{{ strtoupper($d->status) }}</a>  </td>
+                                        <td><a href="{{ url('transaksi-aset/show-transaksiaset',$d->id) }}" class="btn btn-link">{{ strtoupper($d->status) }}</a>  </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

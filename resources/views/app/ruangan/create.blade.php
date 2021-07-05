@@ -16,7 +16,7 @@
                     </div>
                 @endif
                 <h4 class="page-title">Menambah data ruangan</h4>
-                {!! Form::open(array('route' => 'ruangan.store','method'=>'POST','enctype'=>'multipart/form-data')) !!}
+                {!! Form::open(array('route' => 'transaksi-ruangan-app.store','method'=>'POST','enctype'=>'multipart/form-data')) !!}
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

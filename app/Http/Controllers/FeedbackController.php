@@ -51,7 +51,7 @@ class FeedbackController extends BaseController
            
         ]);
 
-        return redirect('daftar-transaksi')
+        return redirect('transaksi-ruangan/daftar-transaksi')
             ->with('success','feedback anda telah tersimpan');
     }
 

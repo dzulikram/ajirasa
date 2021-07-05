@@ -16,7 +16,7 @@
                     </div>
                 @endif
                 <h4 class="page-title">Edit data ruangan</h4>
-                    {!! Form::model($data, ['method' => 'PATCH','route' => ['ruangan.update', $data->id], 'enctype'=>'multipart/form-data']) !!}
+                    {!! Form::model($data, ['method' => 'PATCH','route' => ['transaksi-ruangan-app.update', $data->id], 'enctype'=>'multipart/form-data']) !!}
                     <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

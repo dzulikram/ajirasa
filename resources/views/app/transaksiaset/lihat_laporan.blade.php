@@ -53,7 +53,7 @@
                                             <td>{{ $d->created_at }}</td>
                                             <td>{{ $d->tanggal_peminjaman }}</td>
                                             <td>{{ $d->tanggal_pengembalian }}</td>
-                                            <td><a href="{{ url('show-transaksiaset',$d->id) }}" class="btn btn-link">{{ strtoupper($d->status) }}</a>   </td>
+                                            <td><a href="{{ url('transaksi-aset/show-transaksiaset',$d->id) }}" class="btn btn-link">{{ strtoupper($d->status) }}</a>   </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
