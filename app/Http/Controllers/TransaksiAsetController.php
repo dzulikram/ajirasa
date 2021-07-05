@@ -84,7 +84,6 @@ Pada Tanggal *".$request->tanggal_peminjaman."*
 Oleh *".$username."*";
         $this->sendWa($message,'6281385282208');
         $this->sendWa($message,'6282157707012');
-        $this->sendWa($message,'6281283442713');
 
         return redirect('transaksi-aset/daftar-transaksiaset')
             ->with('success','Transaksi anda sedang di proses');
